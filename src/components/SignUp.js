@@ -67,7 +67,7 @@ const SignUp = () => {
                   className="form-validation-invalid"
                   type="invalid"
                 >
-                  Please enter email
+                  Please enter username
                 </Form.Control.Feedback>
               </Form.Group>
             </Form>

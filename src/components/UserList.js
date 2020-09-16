@@ -60,17 +60,18 @@ const UserList = () => {
             </tr>
           </thead>
           <tbody>
-            {userListData.map((list, index) => {
-              return (
-                <tr key={index}>
-                  <td className="table-email">
-                    <Link to={`/userdetails/${list.id}`}>{list.email}</Link>
-                  </td>
-                  <td>{list.first_name}</td>
-                  <td>{list.last_name}</td>
-                </tr>
-              );
-            })}
+            {userListData.length > 0 &&
+              userListData.map((list, index) => {
+                return (
+                  <tr key={index}>
+                    <td className="table-email">
+                      <Link to={`/userdetails/${list.id}`}>{list.email}</Link>
+                    </td>
+                    <td>{list.first_name}</td>
+                    <td>{list.last_name}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </Table>
       </div>

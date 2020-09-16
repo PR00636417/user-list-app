@@ -45,13 +45,14 @@ const UserDetails = props => {
 
           <img
             className="user-profile-picture"
-            src={userProfileDetails.avatar}
+            src={userProfileDetails && userProfileDetails.avatar}
             alt="userProfilePicture"
           />
           <div className="user-details-text">
-            <div>{userProfileDetails.email}</div>
+            <div>{userProfileDetails && userProfileDetails.email}</div>
             <div>
-              {userProfileDetails.first_name} {userProfileDetails.last_name}
+              {userProfileDetails && userProfileDetails.first_name}{" "}
+              {userProfileDetails && userProfileDetails.last_name}
             </div>
           </div>
           <div className="user-delete-link">
