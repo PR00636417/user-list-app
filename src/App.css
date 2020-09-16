@@ -1,3 +1,170 @@
+/**----- Login ------**/
+.login-container {
+  height: 300px;
+  position: relative;
+}
+
+.login-button {
+  color: #007bff;
+}
+
+.login-button:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.sign-up-link {
+  text-decoration: underline;
+  color: cornflowerblue;
+}
+
+/*********** form validation css *******/
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none !important;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none !important;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: #ced4da !important;
+  background-image: none !important;
+}
+.form-control.is-valid:focus,
+.was-validated .form-control:valid:focus {
+  background-image: none !important;
+  border-color: #007bff !important;
+}
+.invalid-feedback {
+  font-family: "EMPrintRegular" !important;
+}
+
+.form-control.is-invalid:focus,
+.was-validated .form-control:invalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control {
+  border: 1px solid green;
+  border-radius: 0rem;
+}
+.formInput {
+  padding: 8px 9px;
+  width: 100%;
+}
+
+.login-forms {
+  padding-top: 20px;
+}
+.form-validation-invalid {
+  font-size: 15px;
+}
+
+.api-error-message {
+  color: red;
+  font-weight: 600;
+}
+
+/** --- User-list --- **/
+.user-container {
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 0 auto;
+}
+/** ---user details---**/
+.user-details-text {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.user-profile-picture {
+  border-radius: 75px;
+  width: 126px;
+  height: 126px;
+}
+
+.user-profile-container {
+  height: 300px;
+  position: relative;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 0 auto;
+}
+
+.user-profile-wrapper {
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+.user-delete-link {
+  text-decoration: underline;
+  color: cornflowerblue;
+  margin-bottom: 25px;
+}
+
+/** -- Header -- **/
+.user-header {
+  background-color: rgba(255, 208, 0, 0.87);
+  height: 60px;
+}
+.header-logout {
+  float: right;
+  cursor: pointer;
+  font-weight: Bold;
+}
+
+.header-logout:hover {
+  text-decoration: underline;
+}
+
+.modal-body {
+  font-weight: 500;
+}
+
+/*---Table Css----*/
+.table-main-heading {
+  background-color: royalblue;
+  color: white;
+}
+
+.table-email {
+  text-decoration: underline;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #0e62e63d;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #0e62e61a;
+}
+
+.table-striped tbody tr:hover {
+  background-color: rgba(245, 180, 180, 0.1);
+}
+
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .user-container {
+    padding-left: 0%;
+    padding-right: 0%;
+    margin: 0 auto;
+  }
+  .user-profile-container {
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+    margin: 0 auto;
+  }
+}
+
 .App {
   text-align: center;
 }

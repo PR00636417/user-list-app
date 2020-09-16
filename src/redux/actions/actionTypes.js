@@ -1,0 +1,32 @@
+//Login
+export const VALIDATE_USER_LOGIN = "VALIDATE_USER_LOGIN";
+export const LOGIN_API_SUCCESS = "LOGIN_API_SUCCESS";
+export const LOGIN_API_FAILED = "LOGIN_API_FAILED";
+
+//InputField
+export const ON_INPUT_FIELD_CHANGE = "ON_INPUT_FIELD_CHANGE";
+export const getUserState = state => state.userData;
+
+//SignUP
+export const ON_SIGNUP_USER = "ON_SIGNUP_USER";
+export const SIGN_UP_API_FAILED = "SIGN_UP_API_FAILED";
+export const SIGN_UP_API_SUCCESS = "SIGN_UP_API_SUCCESS";
+
+//UserList
+export const GET_USER_LISTS = "GET_USER_LISTS";
+export const USERLIST_API_SUCCESS = "USERLIST_API_SUCCESS";
+export const USERLIST_API_FAILED = "USERLIST_API_FAILED";
+
+//UserProfileDetails
+export const GET_USER_PROFILE_DETAILS = "GET_USER_PROFILE_DETAILS";
+export const PROFILE_DETAILS_API_SUCCESS = "PROFILE_DETAILS_API_SUCCESS";
+export const PROFILE_DETAILS_API_FAILED = "PROFILE_DETAILS_API_FAILED";
+export const ON_DELETE_USER = "ON_DELETE_USER";
+
+//Logout
+export const USER_LOGOUT = "USER_LOGOUT";
+
+//Spinner
+
+export const START_API_LOADER = "START_API_LOADER";
+export const STOP_API_LOADER = "STOP_API_LOADER";
