@@ -1,6 +1,7 @@
 import * as types from "./actions/actionTypes";
 import { take, select, put, takeEvery } from "redux-saga/effects";
-import axios from "axios";
+import { getUserState } from "./actions/helper";
+import { axiosPost, axiosGet, axiosDelete } from "./service";
 
 var createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();
@@ -10,13 +11,12 @@ const history = createBrowserHistory();
 export function* validateUser() {
   while (true) {
     yield take(types.VALIDATE_USER_LOGIN);
-    let stateData = yield select(types.getUserState);
-
+    let stateData = yield select(getUserState);
     const loginDetails = {
       email: stateData.loginEmail,
       password: stateData.loginPassword
     };
-    let response;
+    let getResponse;
 
     try {
       yield put({
@@ -24,11 +24,15 @@ export function* validateUser() {
         loadSpinner: true
       });
 
-      response = yield axios.post(`https://reqres.in/api/login`, loginDetails);
-      if (response && response.status === 200) {
+      getResponse = yield axiosPost(
+        `https://reqres.in/api/login`,
+        loginDetails
+      );
+
+      if (getResponse && getResponse.status === 200) {
         yield put({
           type: types.LOGIN_API_SUCCESS,
-          loginToken: response.data
+          loginToken: getResponse.data
         });
       }
       yield put({
@@ -53,7 +57,7 @@ export function* validateUser() {
 export function* userRegistration() {
   while (true) {
     yield take(types.ON_SIGNUP_USER);
-    let stateData = yield select(types.getUserState);
+    let stateData = yield select(getUserState);
 
     const registerDetails = {
       email: stateData.signUpEmail,
@@ -66,7 +70,8 @@ export function* userRegistration() {
         type: types.START_API_LOADER,
         loadSpinner: true
       });
-      response = yield axios.post(
+
+      response = yield axiosPost(
         `https://reqres.in/api/register`,
         registerDetails
       );
@@ -101,7 +106,7 @@ export function* getUsers(action) {
   if (action) {
     let response;
     try {
-      response = yield axios.get(
+      response = yield axiosGet(
         `https://reqres.in/api/users?page= ${action.pageId}`
       );
 
@@ -132,9 +137,10 @@ export function* getProfileDetails(action) {
         loadSpinner: true
       });
 
-      response = yield axios.get(
+      response = yield axiosGet(
         `https://reqres.in/api/users/ ${action.userId}`
       );
+
       if (response && response.status === 200) {
         yield put({
           type: types.PROFILE_DETAILS_API_SUCCESS,
@@ -172,7 +178,7 @@ export function* deleteUser() {
         loadSpinner: true
       });
 
-      response = yield axios.delete(`https://reqres.in/api/users/ ${userId}`);
+      response = yield axiosDelete(`https://reqres.in/api/users/ ${userId}`);
 
       if (response.status === 204) {
         yield put({

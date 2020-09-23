@@ -1,7 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export default function userDataReducer(state = initialState, action) {
+const userDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN_API_SUCCESS:
       return {
@@ -62,17 +62,7 @@ export default function userDataReducer(state = initialState, action) {
 
     case types.USER_LOGOUT:
       return {
-        ...state,
-        loginEmail: "",
-        loginPassword: "",
-        loginErrorMessage: "",
-        loginToken: "",
-        userListData: [],
-        userProfileDetails: {},
-        signUpEmail: "",
-        signUpPassword: "",
-        signUpToken: "",
-        signUpApiMessage: ""
+        ...initialState
       };
 
     case types.START_API_LOADER:
@@ -86,6 +76,8 @@ export default function userDataReducer(state = initialState, action) {
         loadSpinner: action.loadSpinner
       };
     default:
-      return state;
+      return { ...state };
   }
-}
+};
+
+export default userDataReducer;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
+import "./styles/mainstyles.scss";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import UserList from "./components/UserList";

@@ -1,0 +1,36 @@
+@import "./variables.scss";
+.user-container {
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 0 auto;
+}
+
+/*---Table Css----*/
+.table-main-heading {
+  background-color: $light-green;
+  color: $white;
+}
+
+.table-email {
+  text-decoration: underline;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(14, 222, 255, 0.1);
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: gba(0, 0, 0, 0.05);
+}
+
+.table-striped tbody tr:hover {
+  background-color: $blue-shade;
+}
+
+.pagination-arrows {
+  float: right;
+  margin-right: 20px;
+}
+.pagination-arrow-icons {
+  font-size: 17px;
+}

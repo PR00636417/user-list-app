@@ -1,11 +1,10 @@
 import React from "react";
-import "../App.css";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-const AuthenticateLogin = WrappedComponent => {
+const AuthenticateLoginHOC = WrappedComponent => {
   const HOC = props => {
-    const { loginToken } = useSelector(state => state.userData);
+    const { loginToken } = useSelector(state => state);
     return (
       <React.Fragment>
         {loginToken === "" ? <Redirect to="/" /> : <WrappedComponent />}
@@ -15,4 +14,4 @@ const AuthenticateLogin = WrappedComponent => {
   return HOC;
 };
 
-export default AuthenticateLogin;
+export default AuthenticateLoginHOC;

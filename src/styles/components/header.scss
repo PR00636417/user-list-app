@@ -1,0 +1,48 @@
+@import "./variables.scss";
+
+/** -- Header -- **/
+.user-header {
+  background-color: #222930;
+  height: 80px;
+  border-bottom: 8px solid $light-blue;
+  .header-wrapper {
+    padding-top: 20px;
+  }
+  .header-logout {
+    float: right;
+    cursor: pointer;
+    font-weight: Bold;
+  }
+
+  .header-logout:hover {
+    background-color: $light-blue;
+    color: $black;
+    padding: 6px;
+    border-radius: 5px;
+  }
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: $light-blue;
+    color: $black;
+    align-items: center;
+    margin-left: 7%;
+    padding-top: 6px;
+  }
+  .header-text {
+    color: $white;
+    float: left;
+    padding-top: 2px;
+    font-size: 1.2rem;
+    padding-left: 2%;
+  }
+  .header-logout-text {
+    float: right;
+    padding-right: 20px;
+    font-weight: Bold;
+    padding-top: 2px;
+    font-size: 1.2rem;
+    color: $white;
+  }
+}

@@ -5,7 +5,6 @@ export const LOGIN_API_FAILED = "LOGIN_API_FAILED";
 
 //InputField
 export const ON_INPUT_FIELD_CHANGE = "ON_INPUT_FIELD_CHANGE";
-export const getUserState = state => state.userData;
 
 //SignUP
 export const ON_SIGNUP_USER = "ON_SIGNUP_USER";

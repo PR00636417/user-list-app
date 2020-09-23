@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import rootReducer from "./reducers";
+import userDataReducer from "./reducers/userDataReducer";
+
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import createSagaMiddleware from "redux-saga";
 // eslint-disable-next-line
@@ -12,7 +13,7 @@ export default function configureStore(initialState) {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 
   let store = createStore(
-    rootReducer,
+    userDataReducer,
     initialState,
     composeEnhancers(
       applyMiddleware(sagaMiddleware, reduxImmutableStateInvariant())

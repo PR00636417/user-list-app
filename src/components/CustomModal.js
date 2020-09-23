@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 import { Button, Modal } from "react-bootstrap";
 
 const CustomModal = props => {
@@ -12,17 +11,17 @@ const CustomModal = props => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{props.modalHeader}</Modal.Title>{" "}
-      </Modal.Header>{" "}
-      <Modal.Body>{props.modalMessage}</Modal.Body>{" "}
+        <Modal.Title>{props.modalHeader}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{props.modalMessage}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => props.onSelectedYes()}>
           Yes
-        </Button>{" "}
+        </Button>
         <Button variant="primary" onClick={() => props.onHide()}>
           No
-        </Button>{" "}
-      </Modal.Footer>{" "}
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 };

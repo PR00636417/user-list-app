@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import { Table } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserLists } from "../redux/actions/userActions";
 import { Link } from "react-router-dom";
 import Header from "./Header";
-import LeftArrow from "../assets/left-arrow.svg";
-import RightArrow from "../assets/right-arrow.svg";
-import AuthenticateLogin from "./AuthenticateLogin";
+import AuthenticateLoginHOC from "./AuthenticateLoginHOC";
 
 const UserList = () => {
   const dispatch = useDispatch();
-
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(
@@ -23,7 +18,7 @@ const UserList = () => {
   );
 
   const { userListData, userListApiFailedMessage } = useSelector(
-    state => state.userData
+    state => state
   );
 
   const onLeftArrowClick = () => {
@@ -37,6 +32,33 @@ const UserList = () => {
     }
   };
 
+  const rendertableData = () => {
+    return (
+      <Table striped bordered hover className="mt-3" size={tableResponsiveSize}>
+        <thead>
+          <tr className="table-main-heading">
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userListData.length > 0 &&
+            userListData.map((list, index) => {
+              return (
+                <tr key={index}>
+                  <td className="table-email">
+                    <Link to={`/userdetails/${list.id}`}>{list.email}</Link>
+                  </td>
+                  <td>{list.first_name}</td>
+                  <td>{list.last_name}</td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </Table>
+    );
+  };
   let tableResponsiveSize = "md";
   if (window.innerWidth < 1000) {
     tableResponsiveSize = "sm";
@@ -44,54 +66,28 @@ const UserList = () => {
   return (
     <div className="user-container">
       <Header />
-      <div>
-        <Table
-          striped
-          bordered
-          hover
-          style={{ marginTop: "20px" }}
-          size={tableResponsiveSize}
-        >
-          <thead>
-            <tr className="table-main-heading">
-              <th>Email</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userListData.length > 0 &&
-              userListData.map((list, index) => {
-                return (
-                  <tr key={index}>
-                    <td className="table-email">
-                      <Link to={`/userdetails/${list.id}`}>{list.email}</Link>
-                    </td>
-                    <td>{list.first_name}</td>
-                    <td>{list.last_name}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </Table>
+      <div className="mt-3">
+        <h4> LIST OF USERS</h4>
       </div>
-      <div className="list-arrows" style={{ float: "right" }}>
-        <span>
-          <img
-            src={LeftArrow}
-            style={{ width: "40px", marginRight: "20px", cursor: "pointer" }}
-            alt="LeftArrow"
-            onClick={() => onLeftArrowClick()}
-          />
-        </span>
-        <span>
-          <img
-            src={RightArrow}
-            style={{ width: "40px", cursor: "pointer" }}
-            alt="RightArrow"
-            onClick={() => onRightArrowClick()}
-          />
-        </span>
+      <div>{rendertableData()}</div>
+      <div className="pagination-arrows">
+        <Button
+          size="sm"
+          variant="outline-info"
+          disabled={pageNumber === 1}
+          onClick={() => onLeftArrowClick()}
+        >
+          <i className="fa fa-arrow-circle-left pagination-arrow-icons" />
+        </Button>
+        <span className="px-2">{pageNumber}</span>
+        <Button
+          size="sm"
+          variant="outline-info"
+          disabled={pageNumber === 2}
+          onClick={() => onRightArrowClick()}
+        >
+          <i className="fa fa-arrow-circle-right pagination-arrow-icons" />
+        </Button>
       </div>
 
       {userListApiFailedMessage && (
@@ -101,4 +97,4 @@ const UserList = () => {
   );
 };
 
-export default AuthenticateLogin(UserList);
+export default AuthenticateLoginHOC(UserList);
